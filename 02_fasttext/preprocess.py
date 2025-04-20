@@ -11,7 +11,7 @@ print(id_to_label)
 
 # 标签转化
 train_data = []
-with open("./data/test.txt", encoding="utf-8") as f:
+with open("./data/train.txt", encoding="utf-8") as f:
     for line in f.readlines():
         line = line.strip()
         sentence, label = line.split("\t")
@@ -24,9 +24,9 @@ with open("./data/test.txt", encoding="utf-8") as f:
         new_sentence = new_label + " " + sent_char
         train_data.append(new_sentence)
 
-# print(train_data[:3])
+print(train_data[:3])
 
-# 将处理后的结果存储在txt文本中
+# # 将处理后的结果存储在txt文本中
 with open("./data/test_new.txt", mode="w", encoding="utf-8") as f:
     for data in train_data:
         f.write(data + "\n")

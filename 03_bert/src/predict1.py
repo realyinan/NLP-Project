@@ -1,7 +1,8 @@
 import torch
 from importlib import import_module
 import numpy as np
-
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, message="TypedStorage is deprecated")
 
 CLS = "[CLS]"
 id_to_name = {0: 'finance', 1: 'realty', 2: 'stocks', 3: 'education', 4: 'science',

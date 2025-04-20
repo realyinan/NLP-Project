@@ -31,14 +31,14 @@ if __name__ == "__main__":
         test_iter = build_iterator(test_data, config)
 
         # 训练模型
-        # model = x.Model(config).to(config.device)
-        # train(config, model, train_iter)
+        model = x.Model(config).to(config.device)
+        train(config, model, train_iter)
 
         # 测试模型
-        model = x.Model(config)
-        state_dict = torch.load(config.save_path, map_location=config.device)
-        model.load_state_dict(state_dict)
-        model.to(config.device)
-        test(config, model, test_iter)
+        # model = x.Model(config)
+        # state_dict = torch.load(config.save_path, map_location=config.device)
+        # model.load_state_dict(state_dict)
+        # model.to(config.device)
+        # test(config, model, test_iter)
 
 

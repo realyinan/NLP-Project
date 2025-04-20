@@ -62,8 +62,10 @@ class DatasetIterator(object):
             mask = torch.LongTensor([_[3] for _ in datas]).to(self.device)
             return (x, seq_len, mask), y
         # 若为TextCNN模型, 返回
-        if self.model_name == "textCNN":
+        elif self.model_name == "textCNN":
             return (x, seq_len), y
+        else:
+            raise ValueError(f"Unknown model name: {self.model_name}")
 
     def __next__(self):
         """
@@ -103,8 +105,8 @@ def build_iterator(dataset, config):
     """
     根据配置信息构建迭代器
     """
-    iter = DatasetIterator(dataset, config.batch_size, config.device, config.model_name)
-    return iter
+    iterator = DatasetIterator(dataset, config.batch_size, config.device, config.model_name)
+    return iterator
 
 
 def get_time_diff(start_time):
